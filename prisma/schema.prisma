@@ -1,0 +1,17 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Asegúrate que el provider sea postgresql
+  url      = env("DATABASE_URL") // Lee la URL del archivo .env
+}
+
+// Define el modelo para la tabla de libros
+model Book {
+  id     Int    @id @default(autoincrement()) // Clave primaria autoincremental
+  title  String // Campo para el título del libro (tipo String)
+  author String // Campo para el autor del libro (tipo String)
+}
